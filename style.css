@@ -1,0 +1,134 @@
+html, body {
+    height: 100%; 
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+}
+  
+* { box-sizing: border-box; }
+  
+.page-wrapper {
+    min-height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+  
+button { 
+    padding:20px; 
+    border:none;
+    background-color: #81B02B;
+    position:relative; 
+    border-radius:5px;
+    box-shadow: 4px 0px #628523;
+    color:#eee;
+    font-size:1rem;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #719926;
+    transform: scale(1.05);
+}
+
+button:active{
+    transform: scale(0.8);
+} 
+
+.cart-item {
+    position:absolute;
+    height:24px;
+    width:24px;
+    top:-10px;
+    right:-10px;
+}
+
+.cart-item:before {
+    content:'1';
+    display:block;
+    line-height:24px;
+    height:24px;
+    width:24px;
+    font-size:12px;
+    font-weight:600;
+    background:#F7665E;
+    color:white;
+    border-radius:20px;
+    text-align:center;
+} 
+     
+.cart {
+    position:fixed;
+    top:50px;
+    right:100px;
+    padding: 10px 20px;
+    background:#447253;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 5px 0 #385f45;
+    border-radius:5px;
+    color: #fff;
+}
+
+.cart:before {
+    content:attr(data-total);
+    font-size:12px;
+    font-weight:600;
+    position:absolute;
+    top:-10px;
+    right:-10px;
+    background:#F7665E; 
+    padding:5px 10px;  
+    color:white;
+    text-align:center;
+    border-radius:24px;
+}
+  
+.cart > i {
+    font-size:1.2rem;
+    color:white;
+}
+ 
+.shake {
+    animation: shake .5s ease-in-out;
+} 
+  
+@keyframes pointX {
+    100% {
+        transform: translateX(calc(50vw - 190px));
+    }
+}
+  
+@keyframes pointY {
+    100% {
+        transform: translateY(calc(-50vh + 90px));
+    }
+}
+  
+@keyframes shake {
+    20% {
+      transform:translateY(10px)
+    }
+    40% {
+      transform:translateY(-8px);
+    }
+    60% {
+      transform:translateY(6px);
+    }
+    80% {
+      transform:translateY(-4px);
+    }
+    100% {
+      transform:translateY(0);
+    }
+}
+
+.sendtocart .cart-item {
+    display:block;
+    animation: pointX 1s forwards ease-in; 
+} 
+.sendtocart .cart-item:before{
+    animation: pointY 1s forwards ease-out;
+}
